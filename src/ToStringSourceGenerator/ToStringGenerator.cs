@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
 using ToStringSourceGenerator.Utils;
 
@@ -11,12 +10,12 @@ namespace ToStringSourceGenerator.Generators
     [Generator]
     public class SourceGeneratorToString : ISourceGenerator
     {
-        public void Initialize(InitializationContext context)
+        public void Initialize(GeneratorInitializationContext context)
         {
             // No initialization required for this one
         }
 
-        public void Execute(SourceGeneratorContext context)
+        public void Execute(GeneratorExecutionContext context)
         {
             context.AddCompiledOnMetadataAttribute();
 

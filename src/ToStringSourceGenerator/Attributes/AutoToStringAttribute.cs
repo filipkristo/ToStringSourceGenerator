@@ -6,5 +6,4 @@ namespace ToStringSourceGenerator.Attributes
     public sealed class AutoToStringAttribute : Attribute
     {
     }
-
 }

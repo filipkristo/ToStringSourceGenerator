@@ -14,22 +14,23 @@ namespace ToStringSourceGenerator.Generators
         private const string _valuesSeparator = ",";
         private const string _propertySeparator = ":";
 
-        private readonly SourceGeneratorContext _context;
+        private readonly GeneratorExecutionContext _context;
 
         internal static bool ShouldUseGenerator([ValidatedNotNull] INamedTypeSymbol symbol)
         {
             return CompilationHelper.SymbolContainsAttribute<AutoToStringAttribute>(symbol);
         }
 
-        public DefaultToStringGenerator(SourceGeneratorContext context)
+        public DefaultToStringGenerator(GeneratorExecutionContext context)
         {
             _context = context;
         }
 
-        private static DefaultToStringGenerator Create(SourceGeneratorContext context)
+        private static DefaultToStringGenerator Create(GeneratorExecutionContext context)
         {
             return new DefaultToStringGenerator(context);
         }
+
         internal void WriteType(INamedTypeSymbol type, IndentedTextWriter indentedTextWriter)
         {
             if (!CompilationHelper.IsPartial(type))
